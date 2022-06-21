@@ -41,7 +41,7 @@
             <a href="#">Law Optional <i v-if="scrWidth > 769" class="la la-angle-down fs-12"></i></a>
             <ul :class="scrWidth < 769 ? 'sub-menu': 'dropdown-menu-item'" >
                 <li><router-link to="/course-list/law-optional/3" >Law Optional </router-link></li>
-                <li><router-link to="/course/upsc-mentorship-program-for-202324/19" >QRP Law Optional</router-link></li>
+                <li><router-link to="/course/qrp-quick-revision-program-for-law-optional-upsc-cse-mains-2022/20" >QRP Law Optional</router-link></li>
                 <li class="nest-sub-menu">
                     <a href="#">UPSC LAW Optional Previous Years Papers <i v-if="scrWidth > 769" class="la la-angle-right fs-12"></i></a>
                     <ul class="cust-sub-menu sub-menu">
