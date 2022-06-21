@@ -1,0 +1,108 @@
+<template>
+    <div class="modal fade" id="curradModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title f-w-600" id="exampleModalLabel">Add new Currency detail. </h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-success">{{successmsg}}</p>
+                    <form @submit.prevent="addcurrnow">
+                        
+                        <label for="tname">Currency Name:</label>
+                        <input type="text" class="form-control" placeholder="Enter Currency name" id="tname" v-model="currname">
+                        <!-- Error msg -->
+                                <div v-if="error">
+                                    <ul>
+                                        <li v-for="err of error.cname" :key="err" class="text-danger" >
+                                             {{err}}
+                                        </li>
+                                    </ul>
+                                </div>
+                               
+                                <!-- Error msg -->
+
+                        <br><label for="curr">Currency Code:</label>
+                        <input type="text" class="form-control" placeholder="Enter currency code" id="curr" v-model="currcode">
+                        <!-- Error msg -->
+                                <div v-if="error">
+                                    <ul>
+                                        <li v-for="err of error.ccode" :key="err" class="text-danger" >
+                                             {{err}}
+                                        </li>
+                                    </ul>
+                                </div>
+                               
+                                <!-- Error msg -->
+                        <br><label for="curr">Currency Symbol:</label>
+                        <input type="text" class="form-control" placeholder="Enter currency Symbol" id="curr" v-model="currsymb">
+                        <!-- Error msg -->
+                                <div v-if="error">
+                                    <ul>
+                                        <li v-for="err of error.csymb" :key="err" class="text-danger" >
+                                             {{err}}
+                                        </li>
+                                    </ul>
+                                </div>
+                               
+                                <!-- Error msg -->
+                            <br><br>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </form>
+                    
+                </div>
+                <div class="modal-footer">
+                    
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Close</button>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</template>
+<script>
+export default {
+    data(){
+        return{
+           currname:"",
+           currcode:"",
+           currsymb:"",
+           error:"",
+           successmsg:"",
+
+        }
+    },
+   
+    methods:{
+            addcurrnow(){
+                this.successmsg = "Please Wait...";
+                 const formdata = new FormData();
+                formdata.append("cname",this.currname);
+                formdata.append("ccode",this.currcode);
+                formdata.append("csymb",this.currsymb);
+                
+                
+                axios.post("add-currency-data",formdata)
+                .then((data) =>{
+                    // console.log(data.data);
+                   this.$emit("currAdded",data);
+                   this.error = "";
+                   this.currname = "";
+                   this.currcode = "";
+                   this.currsymb = "";
+                   
+                 this.successmsg = "Currency added successfully";
+                })
+                .catch(error => {
+                    this.error = error.response.data.errors;
+                    this.successmsg = "";
+                    
+                })
+            }
+
+    }
+    
+}
+</script>
