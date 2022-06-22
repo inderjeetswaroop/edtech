@@ -8,12 +8,18 @@
                     <div class="header-widget">
                         <ul class="generic-list-item d-flex flex-wrap align-items-center fs-14">
                             <li class="d-flex align-items-center pr-3 mr-3 border-right border-right-gray"><i class="la la-phone mr-1"></i><a href="tel:9958826967"> (91) 9958826967</a></li>
-                            <li class="d-flex align-items-center"><i class="la la-envelope-o mr-1"></i><a href="mailto:info@beandnbyias.com"> info@beandnbyias.com</a></li>
+                            <li class="d-flex align-items-center"><i class="la la-envelope-o mr-1"></i><a href="mailto:info@beandbyias.com"> info@beandbyias.com</a></li>
                         </ul>
                     </div><!-- end header-widget -->
                 </div><!-- end col-lg-6 -->
                 <div class="col-lg-6">
                     <div class="header-widget d-flex flex-wrap align-items-center justify-content-end">
+                        
+                        <ul class="generic-list-item d-flex flex-wrap align-items-center fs-14 border-left border-left-gray pl-3 ml-3">
+                            <li class="d-flex align-items-center pr-3 mr-3  ">
+                                <a target="_blank" class="blink_me" href="https://lawoptionalcourse.s3.ap-south-1.amazonaws.com/pdfs/UPSC-Prelims-2022-Results.pdf">Prelims 2022 Result</a>
+                            </li>
+                        </ul>
                         <ul v-if="login == 1" class="generic-list-item d-flex flex-wrap align-items-center fs-14 border-left border-left-gray pl-3 ml-3">
                             <li class="d-flex align-items-center pr-3 mr-3 border-right border-right-gray ">
                                 <router-link :to="'/my-course'" style="color:#ec5252"><i class="la la-sign-in mr-1"></i>My Courses</router-link>
@@ -145,9 +151,9 @@
                     <div class="col-md-3"></div>
                     <div class="col-md-6 p-3">
                         <div class="text-center">
-                            <router-link :to="popupInfo.link" >
+                            <a :href="popupInfo.link" target="_blank">
                                 <img :src="popupInfo.image" alt="" class="img-fluid" @click="closePopup">
-                            </router-link>
+                            </a>
                             <button @click="closePopup" class="btn btn-danger float-right btn-position btn-sm">Close</button>  
                         </div>
                     </div>
@@ -293,6 +299,14 @@ export default {
         position: absolute;
         right: 0;
     }
+    .blink_me {
+        animation: blinker 1s linear infinite;
+        color:red;
+        }
+
+        @keyframes blinker {  
+        10% { opacity: 0; }
+        }
     @media screen and (max-width: 768px) {
         #cart2 {
                 display: none;
