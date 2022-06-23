@@ -17,7 +17,7 @@
                         
                         <ul class="generic-list-item d-flex flex-wrap align-items-center fs-14 border-left border-left-gray pl-3 ml-3">
                             <li class="d-flex align-items-center pr-3 mr-3  ">
-                                <a target="_blank" class="blink_me" href="https://lawoptionalcourse.s3.ap-south-1.amazonaws.com/pdfs/UPSC-Prelims-2022-Results.pdf">Prelims 2022 Result</a>
+                                <router-link :to="'/article/upsc-cse-pre-2022-results-declared/188'" class="blink_me"><i class="la la-sign-in mr-1"></i>Prelims 2022 Result</router-link>
                             </li>
                         </ul>
                         <ul v-if="login == 1" class="generic-list-item d-flex flex-wrap align-items-center fs-14 border-left border-left-gray pl-3 ml-3">
