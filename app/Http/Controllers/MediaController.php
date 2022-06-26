@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Storage;
 
 class MediaController extends Controller
 {
-    protected $initImgPath = "http://localhost/edutech/storage/app/public/";
+    protected $initImgPath = "/storage/app/public/";
     public function mediaSetting()
     {
         return view('admin.media');
