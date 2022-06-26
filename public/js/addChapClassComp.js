@@ -1,1 +1,794 @@
-"use strict";(self.webpackChunk=self.webpackChunk||[]).push([[874],{3074:(t,s,a)=>{a.r(s),a.d(s,{default:()=>i});Vue.component("addimage-input",a(1319).Z);const e={props:["chapterid","courseId"],data:function(){return{chapId:"",courseid:"",chapInfo:"",chap:this.chapterid,topic:"",cType:"1",videoLink:"",chatLink:"",classPdf:"",classScript:"",classDate:"",classTime:"",cMode:"0",successmsg:"",error:"",msgColor:""}},created:function(){this.courseid=this.$route.params.courseId,this.chapId=this.$route.params.chapId},methods:{upload:function(){var t=this;this.msgColor="text-success",this.successmsg="Please wait ...";var s=new FormData;s.append("topicname",this.topic),s.append("classtype",this.cType),s.append("videoLink",this.videoLink),s.append("chatlink",this.chatLink),s.append("classPdf",this.classPdf),s.append("classScript",this.classScript),s.append("classdate",this.classDate),s.append("classTime",this.classTime),s.append("classMode",this.cMode),s.append("courseId",this.courseid),s.append("chapterId",this.chapId),axios.post("/course-dashboard/course-classes/add-new-class",s).then((function(s){t.topic="",t.cType="1",t.videoLink="",t.chatLink="",t.classPdf="",t.classScript="",t.classDate="",t.classTime="",t.msgColor="text-success",t.successmsg="Class added successfully"})).catch((function(s){t.error=s.response.data.errors,t.msgColor="text-danger",t.successmsg="fix errors"}))},imglist:function(t){this.videoLink=t.src},getPdf:function(t){this.classPdf=t.src}}};const i=(0,a(1900).Z)(e,(function(){var t=this,s=t.$createElement,a=t._self._c||s;return a("div",{staticClass:"row"},[a("div",{staticClass:"col-md-1"}),t._v(" "),a("div",{staticClass:"col-md-10 p-3"},[a("div",{staticClass:"card"},[a("div",{staticClass:"card-body p-5"},[a("div",{staticClass:"text-right"},[a("router-link",{staticClass:"btn btn-danger btn-xs",attrs:{to:{name:"courseChapClassSetting",params:{chapId:t.chapId,courseId:t.courseid}}}},[t._v("Back ")])],1),t._v(" "),a("br"),t._v(" "),a("hr"),t._v(" "),a("h3",{staticClass:"text-success"},[t._v(t._s(t.successmsg))]),t._v(" "),a("form",{staticClass:"needs-validation add-product-form",attrs:{novalidate:"",method:"post"},on:{submit:function(s){return s.preventDefault(),t.upload(s)}}},[a("div",{staticClass:"row"},[a("div",{staticClass:"col-md-8 py-2"},[a("div",{staticClass:"form-group"},[a("label",{attrs:{for:"topic"}},[t._v("Topic Name:")]),t._v(" "),a("input",{directives:[{name:"model",rawName:"v-model",value:t.topic,expression:"topic"}],staticClass:"form-control",attrs:{type:"text",placeholder:"Enter Topic name"},domProps:{value:t.topic},on:{input:function(s){s.target.composing||(t.topic=s.target.value)}}})]),t._v(" "),t.error?a("div",[a("ul",t._l(t.error.topicname,(function(s){return a("li",{key:s,staticClass:"text-danger"},[t._v("\n                                            "+t._s(s)+"\n                                        ")])})),0)]):t._e()]),t._v(" "),a("div",{staticClass:"col-md-4 py-2"},[a("div",{staticClass:"form-group"},[a("label",{attrs:{for:"topic"}},[t._v("Class/lecture Type:")]),t._v(" "),a("select",{directives:[{name:"model",rawName:"v-model",value:t.cType,expression:"cType"}],staticClass:"form-control",on:{change:function(s){var a=Array.prototype.filter.call(s.target.options,(function(t){return t.selected})).map((function(t){return"_value"in t?t._value:t.value}));t.cType=s.target.multiple?a:a[0]}}},[a("option",{attrs:{selected:"",value:"1"}},[t._v("Video Class")]),t._v(" "),a("option",{attrs:{value:"2"}},[t._v("Only Note")]),t._v(" "),a("option",{attrs:{value:"3"}},[t._v("Schedule Test")])])])])]),t._v(" "),a("div",{staticClass:"row"},[a("div",{staticClass:"col-md-4 py-2"},[a("div",{staticClass:"form-group"},[a("label",{attrs:{for:"topic"}},[t._v("Class Date:")]),t._v(" "),a("input",{directives:[{name:"model",rawName:"v-model",value:t.classDate,expression:"classDate"}],staticClass:"form-control",attrs:{type:"datetime-local"},domProps:{value:t.classDate},on:{input:function(s){s.target.composing||(t.classDate=s.target.value)}}})])]),t._v(" "),a("div",{staticClass:"col-md-4 py-2"},[a("div",{staticClass:"form-group"},[a("label",{attrs:{for:"topic"}},[t._v("Class Time:")]),t._v(" "),a("input",{directives:[{name:"model",rawName:"v-model",value:t.classTime,expression:"classTime"}],staticClass:"form-control",attrs:{type:"time"},domProps:{value:t.classTime},on:{input:function(s){s.target.composing||(t.classTime=s.target.value)}}})])]),t._v(" "),a("div",{staticClass:"col-md-4 py-2"},[a("div",{staticClass:"form-group"},[a("label",{attrs:{for:"topic"}},[t._v("Class Mode:")]),t._v(" "),a("select",{directives:[{name:"model",rawName:"v-model",value:t.cMode,expression:"cMode"}],staticClass:"form-control",on:{change:function(s){var a=Array.prototype.filter.call(s.target.options,(function(t){return t.selected})).map((function(t){return"_value"in t?t._value:t.value}));t.cMode=s.target.multiple?a:a[0]}}},[a("option",{attrs:{value:"1"}},[t._v("Live Class")]),t._v(" "),a("option",{attrs:{value:"0"}},[t._v("Recorded")])])]),t._v(" "),t.error?a("div",[a("ul",t._l(t.error.classMode,(function(s){return a("li",{key:s,staticClass:"text-danger"},[t._v("\n                                            "+t._s(s)+"\n                                        ")])})),0)]):t._e()])]),t._v(" "),a("div",{staticClass:"row"},[a("div",{staticClass:"col-md-6"},[a("div",{staticClass:"form-group"},[a("label",{attrs:{for:"comment"}},[t._v("Video Link:")]),t._v(" "),a("textarea",{directives:[{name:"model",rawName:"v-model",value:t.videoLink,expression:"videoLink"}],staticClass:"form-control",attrs:{rows:"2"},domProps:{value:t.videoLink},on:{input:function(s){s.target.composing||(t.videoLink=s.target.value)}}}),t._v(" "),a("addimage-input",{attrs:{imagecount:1},on:{getImageData:t.imglist}})],1),t._v(" "),t.error?a("div",[a("ul",t._l(t.error.videoLink,(function(s){return a("li",{key:s,staticClass:"text-danger"},[t._v("\n                                            "+t._s(s)+"\n                                        ")])})),0)]):t._e()]),t._v(" "),a("div",{staticClass:"col-md-6"},[a("div",{staticClass:"form-group"},[a("label",{attrs:{for:"comment"}},[t._v("chat Link(Optional):")]),t._v(" "),a("textarea",{directives:[{name:"model",rawName:"v-model",value:t.chatLink,expression:"chatLink"}],staticClass:"form-control",attrs:{rows:"2"},domProps:{value:t.chatLink},on:{input:function(s){s.target.composing||(t.chatLink=s.target.value)}}})])])]),t._v(" "),a("div",{staticClass:"form-group"},[a("label",{attrs:{for:"topic"}},[t._v("Class PDF:")]),t._v(" "),a("input",{directives:[{name:"model",rawName:"v-model",value:t.classPdf,expression:"classPdf"}],staticClass:"form-control",attrs:{type:"text",placeholder:"Enter Topic name"},domProps:{value:t.classPdf},on:{input:function(s){s.target.composing||(t.classPdf=s.target.value)}}}),t._v(" "),a("addimage-input",{attrs:{imagecount:1},on:{getImageData:t.getPdf}})],1),t._v(" "),t.error?a("div",[a("ul",t._l(t.error.classPdf,(function(s){return a("li",{key:s,staticClass:"text-danger"},[t._v("\n                                            "+t._s(s)+"\n                                        ")])})),0)]):t._e(),t._v(" "),a("div",{staticClass:"col-md-12 border border-success p-3 mt-2"},[a("div",{staticClass:"form-group"},[a("label",{attrs:{for:"comment"}},[t._v("class Script:")]),t._v(" "),a("tinymce",{staticClass:"form-control",attrs:{id:"d1"},model:{value:t.classScript,callback:function(s){t.classScript=s},expression:"classScript"}})],1)]),t._v(" "),a("br"),t._v(" "),a("button",{staticClass:"btn btn-primary",attrs:{type:"submit"}},[t._v("Save")]),t._v(" "),a("h3",{staticClass:"text-success"},[t._v(t._s(t.successmsg))])])])])]),t._v(" "),a("div",{staticClass:"col-md-1"})])}),[],!1,null,"79ee9b15",null).exports}}]);
+"use strict";
+(self["webpackChunk"] = self["webpackChunk"] || []).push([["addChapClassComp"],{
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/addChapClassComp.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/addChapClassComp.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+Vue.component('addimage-input', (__webpack_require__(/*! ./imageInputComp.vue */ "./resources/js/components/imageInputComp.vue")["default"]));
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ["chapterid", "courseId"],
+  data: function data() {
+    return {
+      chapId: "",
+      courseid: "",
+      chapInfo: "",
+      chap: this.chapterid,
+      topic: "",
+      cType: "1",
+      videoLink: "",
+      chatLink: "",
+      classPdf: "",
+      classScript: "",
+      classDate: "",
+      classTime: "",
+      cMode: "0",
+      successmsg: "",
+      error: "",
+      msgColor: ""
+    };
+  },
+  created: function created() {
+    this.courseid = this.$route.params.courseId;
+    this.chapId = this.$route.params.chapId;
+  },
+  methods: {
+    upload: function upload() {
+      var _this = this;
+
+      this.msgColor = "text-success";
+      this.successmsg = "Please wait ...";
+      var formdata = new FormData();
+      formdata.append("topicname", this.topic);
+      formdata.append("classtype", this.cType);
+      formdata.append("videoLink", this.videoLink);
+      formdata.append("chatlink", this.chatLink);
+      formdata.append("classPdf", this.classPdf);
+      formdata.append("classScript", this.classScript);
+      formdata.append("classdate", this.classDate);
+      formdata.append("classTime", this.classTime);
+      formdata.append("classMode", this.cMode);
+      formdata.append("courseId", this.courseid);
+      formdata.append("chapterId", this.chapId);
+      axios.post("/course-dashboard/course-classes/add-new-class", formdata).then(function (data) {
+        _this.topic = "", _this.cType = "1", _this.videoLink = "", _this.chatLink = "", _this.classPdf = "", _this.classScript = "", _this.classDate = "", _this.classTime = "", _this.msgColor = "text-success";
+        _this.successmsg = "Class added successfully";
+      })["catch"](function (error) {
+        _this.error = error.response.data.errors; // console.log(this.error);
+
+        _this.msgColor = "text-danger";
+        _this.successmsg = "fix errors";
+      });
+    },
+    imglist: function imglist(response) {
+      this.videoLink = response.src;
+    },
+    getPdf: function getPdf(response) {
+      this.classPdf = response.src;
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./resources/js/components/addChapClassComp.vue":
+/*!******************************************************!*\
+  !*** ./resources/js/components/addChapClassComp.vue ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _addChapClassComp_vue_vue_type_template_id_03c3a5dd_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./addChapClassComp.vue?vue&type=template&id=03c3a5dd&scoped=true& */ "./resources/js/components/addChapClassComp.vue?vue&type=template&id=03c3a5dd&scoped=true&");
+/* harmony import */ var _addChapClassComp_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./addChapClassComp.vue?vue&type=script&lang=js& */ "./resources/js/components/addChapClassComp.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _addChapClassComp_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _addChapClassComp_vue_vue_type_template_id_03c3a5dd_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render,
+  _addChapClassComp_vue_vue_type_template_id_03c3a5dd_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  "03c3a5dd",
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/addChapClassComp.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/addChapClassComp.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/components/addChapClassComp.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_addChapClassComp_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./addChapClassComp.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/addChapClassComp.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_addChapClassComp_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/addChapClassComp.vue?vue&type=template&id=03c3a5dd&scoped=true&":
+/*!*************************************************************************************************!*\
+  !*** ./resources/js/components/addChapClassComp.vue?vue&type=template&id=03c3a5dd&scoped=true& ***!
+  \*************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_addChapClassComp_vue_vue_type_template_id_03c3a5dd_scoped_true___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_addChapClassComp_vue_vue_type_template_id_03c3a5dd_scoped_true___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_addChapClassComp_vue_vue_type_template_id_03c3a5dd_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./addChapClassComp.vue?vue&type=template&id=03c3a5dd&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/addChapClassComp.vue?vue&type=template&id=03c3a5dd&scoped=true&");
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/addChapClassComp.vue?vue&type=template&id=03c3a5dd&scoped=true&":
+/*!****************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/addChapClassComp.vue?vue&type=template&id=03c3a5dd&scoped=true& ***!
+  \****************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "row" }, [
+    _c("div", { staticClass: "col-md-1" }),
+    _vm._v(" "),
+    _c("div", { staticClass: "col-md-10 p-3" }, [
+      _c("div", { staticClass: "card" }, [
+        _c("div", { staticClass: "card-body p-5" }, [
+          _c(
+            "div",
+            { staticClass: "text-right" },
+            [
+              _c(
+                "router-link",
+                {
+                  staticClass: "btn btn-danger btn-xs",
+                  attrs: {
+                    to: {
+                      name: "courseChapClassSetting",
+                      params: { chapId: _vm.chapId, courseId: _vm.courseid },
+                    },
+                  },
+                },
+                [_vm._v("Back ")]
+              ),
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c("br"),
+          _vm._v(" "),
+          _c("hr"),
+          _vm._v(" "),
+          _c("h3", { staticClass: "text-success" }, [
+            _vm._v(_vm._s(_vm.successmsg)),
+          ]),
+          _vm._v(" "),
+          _c(
+            "form",
+            {
+              staticClass: "needs-validation add-product-form",
+              attrs: { novalidate: "", method: "post" },
+              on: {
+                submit: function ($event) {
+                  $event.preventDefault()
+                  return _vm.upload($event)
+                },
+              },
+            },
+            [
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-8 py-2" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", { attrs: { for: "topic" } }, [
+                      _vm._v("Topic Name:"),
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.topic,
+                          expression: "topic",
+                        },
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "text", placeholder: "Enter Topic name" },
+                      domProps: { value: _vm.topic },
+                      on: {
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.topic = $event.target.value
+                        },
+                      },
+                    }),
+                  ]),
+                  _vm._v(" "),
+                  _vm.error
+                    ? _c("div", [
+                        _c(
+                          "ul",
+                          _vm._l(_vm.error.topicname, function (err) {
+                            return _c(
+                              "li",
+                              { key: err, staticClass: "text-danger" },
+                              [
+                                _vm._v(
+                                  "\n                                            " +
+                                    _vm._s(err) +
+                                    "\n                                        "
+                                ),
+                              ]
+                            )
+                          }),
+                          0
+                        ),
+                      ])
+                    : _vm._e(),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-4 py-2" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", { attrs: { for: "topic" } }, [
+                      _vm._v("Class/lecture Type:"),
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "select",
+                      {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.cType,
+                            expression: "cType",
+                          },
+                        ],
+                        staticClass: "form-control",
+                        on: {
+                          change: function ($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function (o) {
+                                return o.selected
+                              })
+                              .map(function (o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.cType = $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          },
+                        },
+                      },
+                      [
+                        _c("option", { attrs: { selected: "", value: "1" } }, [
+                          _vm._v("Video Class"),
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "2" } }, [
+                          _vm._v("Only Note"),
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "3" } }, [
+                          _vm._v("Schedule Test"),
+                        ]),
+                      ]
+                    ),
+                  ]),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-4 py-2" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", { attrs: { for: "topic" } }, [
+                      _vm._v("Class Date:"),
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.classDate,
+                          expression: "classDate",
+                        },
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "datetime-local" },
+                      domProps: { value: _vm.classDate },
+                      on: {
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.classDate = $event.target.value
+                        },
+                      },
+                    }),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-4 py-2" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", { attrs: { for: "topic" } }, [
+                      _vm._v("Class Time:"),
+                    ]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.classTime,
+                          expression: "classTime",
+                        },
+                      ],
+                      staticClass: "form-control",
+                      attrs: { type: "time" },
+                      domProps: { value: _vm.classTime },
+                      on: {
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.classTime = $event.target.value
+                        },
+                      },
+                    }),
+                  ]),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-4 py-2" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", { attrs: { for: "topic" } }, [
+                      _vm._v("Class Mode:"),
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "select",
+                      {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.cMode,
+                            expression: "cMode",
+                          },
+                        ],
+                        staticClass: "form-control",
+                        on: {
+                          change: function ($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function (o) {
+                                return o.selected
+                              })
+                              .map(function (o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.cMode = $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          },
+                        },
+                      },
+                      [
+                        _c("option", { attrs: { value: "1" } }, [
+                          _vm._v("Live Class"),
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "0" } }, [
+                          _vm._v("Recorded"),
+                        ]),
+                      ]
+                    ),
+                  ]),
+                  _vm._v(" "),
+                  _vm.error
+                    ? _c("div", [
+                        _c(
+                          "ul",
+                          _vm._l(_vm.error.classMode, function (err) {
+                            return _c(
+                              "li",
+                              { key: err, staticClass: "text-danger" },
+                              [
+                                _vm._v(
+                                  "\n                                            " +
+                                    _vm._s(err) +
+                                    "\n                                        "
+                                ),
+                              ]
+                            )
+                          }),
+                          0
+                        ),
+                      ])
+                    : _vm._e(),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "row" }, [
+                _c("div", { staticClass: "col-md-6" }, [
+                  _c(
+                    "div",
+                    { staticClass: "form-group" },
+                    [
+                      _c("label", { attrs: { for: "comment" } }, [
+                        _vm._v("Video Link:"),
+                      ]),
+                      _vm._v(" "),
+                      _c("textarea", {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.videoLink,
+                            expression: "videoLink",
+                          },
+                        ],
+                        staticClass: "form-control",
+                        attrs: { rows: "2" },
+                        domProps: { value: _vm.videoLink },
+                        on: {
+                          input: function ($event) {
+                            if ($event.target.composing) {
+                              return
+                            }
+                            _vm.videoLink = $event.target.value
+                          },
+                        },
+                      }),
+                      _vm._v(" "),
+                      _c("addimage-input", {
+                        attrs: { imagecount: 1 },
+                        on: { getImageData: _vm.imglist },
+                      }),
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _vm.error
+                    ? _c("div", [
+                        _c(
+                          "ul",
+                          _vm._l(_vm.error.videoLink, function (err) {
+                            return _c(
+                              "li",
+                              { key: err, staticClass: "text-danger" },
+                              [
+                                _vm._v(
+                                  "\n                                            " +
+                                    _vm._s(err) +
+                                    "\n                                        "
+                                ),
+                              ]
+                            )
+                          }),
+                          0
+                        ),
+                      ])
+                    : _vm._e(),
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-6" }, [
+                  _c("div", { staticClass: "form-group" }, [
+                    _c("label", { attrs: { for: "comment" } }, [
+                      _vm._v("chat Link(Optional):"),
+                    ]),
+                    _vm._v(" "),
+                    _c("textarea", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.chatLink,
+                          expression: "chatLink",
+                        },
+                      ],
+                      staticClass: "form-control",
+                      attrs: { rows: "2" },
+                      domProps: { value: _vm.chatLink },
+                      on: {
+                        input: function ($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.chatLink = $event.target.value
+                        },
+                      },
+                    }),
+                  ]),
+                ]),
+              ]),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "form-group" },
+                [
+                  _c("label", { attrs: { for: "topic" } }, [
+                    _vm._v("Class PDF:"),
+                  ]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.classPdf,
+                        expression: "classPdf",
+                      },
+                    ],
+                    staticClass: "form-control",
+                    attrs: { type: "text", placeholder: "Enter Topic name" },
+                    domProps: { value: _vm.classPdf },
+                    on: {
+                      input: function ($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.classPdf = $event.target.value
+                      },
+                    },
+                  }),
+                  _vm._v(" "),
+                  _c("addimage-input", {
+                    attrs: { imagecount: 1 },
+                    on: { getImageData: _vm.getPdf },
+                  }),
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _vm.error
+                ? _c("div", [
+                    _c(
+                      "ul",
+                      _vm._l(_vm.error.classPdf, function (err) {
+                        return _c(
+                          "li",
+                          { key: err, staticClass: "text-danger" },
+                          [
+                            _vm._v(
+                              "\n                                            " +
+                                _vm._s(err) +
+                                "\n                                        "
+                            ),
+                          ]
+                        )
+                      }),
+                      0
+                    ),
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "col-md-12 border border-success p-3 mt-2" },
+                [
+                  _c(
+                    "div",
+                    { staticClass: "form-group" },
+                    [
+                      _c("label", { attrs: { for: "comment" } }, [
+                        _vm._v("class Script:"),
+                      ]),
+                      _vm._v(" "),
+                      _c("tinymce", {
+                        staticClass: "form-control",
+                        attrs: { id: "d1" },
+                        model: {
+                          value: _vm.classScript,
+                          callback: function ($$v) {
+                            _vm.classScript = $$v
+                          },
+                          expression: "classScript",
+                        },
+                      }),
+                    ],
+                    1
+                  ),
+                ]
+              ),
+              _vm._v(" "),
+              _c("br"),
+              _vm._v(" "),
+              _c(
+                "button",
+                { staticClass: "btn btn-primary", attrs: { type: "submit" } },
+                [_vm._v("Save")]
+              ),
+              _vm._v(" "),
+              _c("h3", { staticClass: "text-success" }, [
+                _vm._v(_vm._s(_vm.successmsg)),
+              ]),
+            ]
+          ),
+        ]),
+      ]),
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "col-md-1" }),
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ })
+
+}]);
