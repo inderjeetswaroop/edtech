@@ -18,6 +18,9 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Auth::routes();
+
+Route::get("/s3imgUpload","MediaController@imguploadS3");
+Route::post("/image-upload-data","MediaController@imguploadS3Data");
 Route::get("/testing","NormPageController@testing");
 Route::get("/testing2","NormPageController@testing2");
 Route::get("/homepage","NormPageController@home")->name("home");

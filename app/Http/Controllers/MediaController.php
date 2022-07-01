@@ -129,5 +129,24 @@ class MediaController extends Controller
         return $allimages;
     }
 
+    public function imguploadS3()
+    {
+        return view("imageuploadtesting");
+    }
+
+    public function imguploadS3Data(Request $request)
+    {
+        $this->validate($request,[
+            "image" => "required|image",
+        ]);
+
+        if ($request->hasFile("image")) {
+            $file = $request->file("image");
+            $name = time().$file->getclientOriginalName();
+            $filepath = $name;
+            Storage::disk('s3')->put($filepath,file_get_contents($file));
+        }
+        return ;
+    }
     
 }
