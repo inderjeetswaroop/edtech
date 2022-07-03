@@ -142,11 +142,11 @@ class MediaController extends Controller
 
         if ($request->hasFile("image")) {
             $file = $request->file("image");
-            $name = time().$file->getclientOriginalName();
-            $filepath = $name;
-            Storage::disk('s3')->put($filepath,file_get_contents($file));
+            $filepath = "images/".time().$file->getclientOriginalName();
+            Storage::disk('s3')->put($filepath, file_get_contents($file));
+            echo "Image Uploaded";
         }
-        return ;
+        
     }
     
 }
