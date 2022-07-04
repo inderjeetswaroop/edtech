@@ -1,6 +1,6 @@
 <template>
     <div>
-        <img class="img-fluid" src="https://beandbyias.com/storage/app/public/images/category/XuTjtVROLBTEIGAYkrmAmQ5nCCSm6xqFO2QIsx9F.png" alt="Download NCERT books for UPSC Preparation">
+        <img class="img-fluid" src="https://s3.ap-south-1.amazonaws.com/benby.images/images/XuTjtVROLBTEIGAYkrmAmQ5nCCSm6xqFO2QIsx9F.png" alt="Download NCERT books for UPSC Preparation">
         <br>
         <div class="container pt-4">
             <div class="row">
