@@ -10,9 +10,12 @@
                 </div>
                 <div class="modal-body">
                     <div>
+                        
                         <button @click="deleteme(mediaId.data.id)" class="btn btn-danger btn-md">Delete Image/video</button>
+                        
                         <div v-if="mediaId">
                             <div v-if="mediaId.data.type == 1">
+                                
                                   <img  class="img-thumbnail" :src="mediaId.data.src" alt="" >  
                             </div>
                             <div v-else>
@@ -38,14 +41,17 @@
 export default {
     props: ["mediaId"],
     
+
     methods:{
         deleteme(imgid){
+            
             if (confirm("Are you sure to delete this image")) {
                     axios.get("delete-single-media-info/"+imgid)
                     .then((data) => {
                             // this.mediaidinfo = data;
                             this.$emit("imglistupdated",data);
                             $('#deletemedia').hide();
+                             
                             $('.modal-backdrop').hide();
                         })
                     .catch((error) => console.log(error));    
@@ -53,6 +59,7 @@ export default {
             
         }
     }
+    
     
 }
 </script>

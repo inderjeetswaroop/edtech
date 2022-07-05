@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Storage;
 class MediaController extends Controller
 {
     protected $initImgPath = "/storage/app/public/";
+    
     public function mediaSetting()
     {
         return view('admin.media');
@@ -23,20 +24,21 @@ class MediaController extends Controller
 
             $imgfiles = $request->file('medimages');
             foreach ($imgfiles as $images){
-                $images->getClientOriginalName();
+                $ogiImage = time().$images->getClientOriginalName();
+                $filepath = "images/".time().$images->getClientOriginalName();
                 $extension = $images->getClientOriginalExtension();
                 if ($extension == 'jpg' || $extension == 'jpeg' || $extension == 'png' || $extension == 'gif' || $extension == 'pdf') {
                     $type = 1;
-                    $path = $images->store('images/category','public');
                 }
                 else {
                     $type=0;
-                    $path = $images->store('images/category/videos','public');
                 }
-                // $path = $images->store('images/category','public');
+                
+                Storage::disk('s3')->put($filepath, file_get_contents($images));
+
                 $mediaimage = new Media;
-                $mediaimage->src = $this->initImgPath.$path;
-                $mediaimage->imgpath = $path;
+                $mediaimage->src = Storage::disk("s3")->url($filepath);
+                $mediaimage->imgpath = $ogiImage;
                 $mediaimage->type = $type;
                 $mediaimage->save();
                 $picturesids[] = $mediaimage->id;
@@ -51,6 +53,7 @@ class MediaController extends Controller
         }
     }
 
+   
     public function uploadDaf(Request $request)
     {
         if ($request->hasFile('medimages')) {
@@ -101,7 +104,8 @@ class MediaController extends Controller
         $minfo = Media::find($mid);
         $path = $minfo->imgpath;
         if ($minfo->delete()) {
-            Storage::delete("/public/".$path);
+            Storage::disk('s3')->delete('images/',$path);
+            // Storage::delete("/public/".$path);
             $allimages= Media::orderByDesc('id')->get();
             return $allimages->toJson();
         }
@@ -121,7 +125,8 @@ class MediaController extends Controller
             $imginfo = Media::find($imgid);
             $path = $imginfo->imgpath;
                 if ($imginfo->delete()) {
-                    Storage::delete("/public/".$path);
+                    Storage::disk('s3')->delete('images/',$path);
+                    // Storage::delete("/public/".$path);
                 }
             
         }
@@ -129,24 +134,6 @@ class MediaController extends Controller
         return $allimages;
     }
 
-    public function imguploadS3()
-    {
-        return view("imageuploadtesting");
-    }
-
-    public function imguploadS3Data(Request $request)
-    {
-        $this->validate($request,[
-            "image" => "required|image",
-        ]);
-
-        if ($request->hasFile("image")) {
-            $file = $request->file("image");
-            $filepath = "images/".time().$file->getclientOriginalName();
-            Storage::disk('s3')->put($filepath, file_get_contents($file));
-            return Storage::disk("s3")->url($filepath);
-        }
-        
-    }
+    
     
 }
