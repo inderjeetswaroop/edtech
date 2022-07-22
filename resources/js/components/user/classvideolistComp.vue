@@ -25,7 +25,7 @@
                 
                 <div v-if="cType == 1" :id="keyId+'collapse'+index" class="collapse" :class=" index == '0' ? 'show':'' " aria-labelledby="headingOne" data-parent="#accordionCourseExample" :for="index++">
                     
-                        <chap-class-list :courseId="chapList.courseId" :chapterId="chapList.id" :courseName="corsname"></chap-class-list>
+                        <chap-class-list :courseId=chapList.courseId :chapterId="chapList.id" :courseName="corsname"></chap-class-list>
                     
                 </div><!-- end collapse -->
                 

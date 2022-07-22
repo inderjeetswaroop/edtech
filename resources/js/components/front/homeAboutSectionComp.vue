@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
              <div class="col-lg-5">
-                <img class="img-fluid"  src="/frontassets/images/HSdnuCWLwrLiuLKqtnXqy0UJkm8m8x1Q01T2TpQB.png"  alt="About image" >
+                <img class="img-fluid"  src="https://s3.ap-south-1.amazonaws.com/benby.images/images/HSdnuCWLwrLiuLKqtnXqy0UJkm8m8x1Q01T2TpQB.png"  alt="About image" >
                 <div class="text-center">
                     <h2 class="text-theme director-name"> Jasbir Singh Bajaj</h2>
                     <h4>I.A.S.(VRS) 1987 Tamil Nadu Cadre</h4>
@@ -11,19 +11,16 @@
                 <hr>
                 <div class="social-media d-flex flex-wrap mt-5 text-center">
                     <div class="mr-2 border border-danger rounded p-2">
-                        <a href=""><i class="la la-youtube la-3x text-danger"></i></a>
+                        <a href="https://www.youtube.com/channel/UC2BSaGEEWDChYQtgGzgGl_A"><i class="la la-youtube la-3x text-danger"></i></a>
                     </div>  
                     <div class="mr-2 border border-primary rounded p-2">
-                        <a href=""><i class="la la-facebook la-3x text-primary"></i></a>
+                        <a href="https://www.facebook.com/beandbyias"><i class="la la-facebook la-3x text-primary"></i></a>
                     </div>  
                     <div class="mr-2 border border-secondary rounded p-2">
-                        <a href=""><i class="la la-instagram la-3x text-secondary"></i></a>
+                        <a href="https://www.instagram.com/be_n_by_ias/"><i class="la la-instagram la-3x text-secondary"></i></a>
                     </div>  
                     <div class="mr-2 border border-info rounded p-2">
-                        <a href=""><i class="la la-telegram la-3x text-info"></i></a>
-                    </div>  
-                    <div class="mr-2 border border-warning rounded p-2">
-                        <a href=""><i class="la la-twitter la-3x text-warning"></i></a>
+                        <a href="https://t.me/beandbyias"><i class="la la-telegram la-3x text-info"></i></a>
                     </div>  
                 </div>
             </div>

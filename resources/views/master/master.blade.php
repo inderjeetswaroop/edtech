@@ -105,7 +105,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <ul class="generic-list-item pt-4">
                         <li><a href="tel:+919958826967"><i class="la la-mobile text-theme la-2x"></i>+919958826967</a></li>
                         <li><a href="tel:+919354077958"><i class="la la-mobile text-theme la-2x"></i>+919354077958</a></li>
-                        <li><a href="tel:+9101141644377"><i class="la la-mobile text-theme la-2x"></i>+9101141644377</a></li>
+                        <li><a href="tel:+9101141644377"><i class="la la-mobile text-theme la-2x"></i>+91-1141644377</a></li>
                         <li><a href="mailto:info@beandbyias.com"><i class="la la-envelope text-theme la-2x"></i><span>info@beandbyias.com</span></a></li>
                         <!-- <li><a href="mailto:submit@beandbyias.com"><i class="la la-envelop mr-2 text-theme la-2x"></i>submit@beandbyias.com</a></li> -->
                     </ul>
@@ -140,7 +140,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <h3 class="fs-20 font-weight-semi-bold pt-4 pb-2">We are on</h3>
                     <ul class="social-icons social-icons-styled">
                         <li class="mr-1"><a href="https://www.facebook.com/beandbyias" class="facebook-bg"><i class="la la-facebook"></i></a></li>
-                        <li class="mr-1"><a href="https://twitter.com/beandbyias" class="twitter-bg"><i class="la la-twitter"></i></a></li>
+                        <!-- <li class="mr-1"><a href="https://twitter.com/beandbyias" class="twitter-bg"><i class="la la-twitter"></i></a></li> -->
                         <li class="mr-1"><a href="https://www.instagram.com/be_n_by_ias/" class="instagram-bg"><i class="la la-instagram"></i></a></li>
                         <li class="mr-1"><a href="https://www.youtube.com/channel/UC2BSaGEEWDChYQtgGzgGl_A" class="bg-danger text-white"><i class="la la-youtube"></i></a></li>
                         <li class="mr-1"><a href="https://t.me/beandbyias" class="linkedin-bg"><i class="la la-telegram"></i></a></li>

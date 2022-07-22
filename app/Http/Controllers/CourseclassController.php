@@ -77,11 +77,12 @@ class CourseclassController extends Controller
            }
            /* $uCourse = Course::whereIn("id",$paidCourse)->get();
            print_r($uCourse); */
-           $sFrom = date("Y-m-d", strtotime($courseStartDate));
-           $sTo = date("Y-m-d", strtotime($courseEndDate));
+        //    echo $courseStartDate."<br>";
+        //    echo $sFrom = date("Y-m-d", strtotime($courseStartDate));
+        //    echo $sTo = date("Y-m-d", strtotime($courseEndDate));
         // echo "<br>".date('Y-m-d h:i:s', strtotime('+1 year', strtotime($courseStartDate)));
-        // $classList = Courseclass::where("chapterId",$chaptId)->where('classdate','>=',$sFrom)->where("classdate","<",$sTo)->orderBy("created_at","desc")->get();
-        $classList = Courseclass::where("chapterId",$chaptId)->orderBy("created_at","desc")->get();
+        $classList = Courseclass::where("chapterId",$chaptId)->where('classdate','>=',$courseStartDate)->where("classdate","<",$courseEndDate)->orderBy("created_at","desc")->get();
+        // $classList = Courseclass::where("chapterId",$chaptId)->orderBy("created_at","desc")->get();
         return $classList->toJson();
     }
 

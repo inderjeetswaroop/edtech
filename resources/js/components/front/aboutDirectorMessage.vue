@@ -41,19 +41,16 @@
                             <hr>
                             <div class="social-media d-flex flex-wrap mt-5 text-center">
                                 <div class="mr-2 border border-danger rounded p-2">
-                                    <a href=""><i class="la la-youtube la-3x text-danger"></i></a>
+                                    <a href="https://www.youtube.com/channel/UC2BSaGEEWDChYQtgGzgGl_A"><i class="la la-youtube la-3x text-danger"></i></a>
                                 </div>  
                                 <div class="mr-2 border border-primary rounded p-2">
-                                    <a href=""><i class="la la-facebook la-3x text-primary"></i></a>
+                                    <a href="https://www.facebook.com/beandbyias"><i class="la la-facebook la-3x text-primary"></i></a>
                                 </div>  
                                 <div class="mr-2 border border-secondary rounded p-2">
-                                    <a href=""><i class="la la-instagram la-3x text-secondary"></i></a>
+                                    <a href="https://www.instagram.com/be_n_by_ias/"><i class="la la-instagram la-3x text-secondary"></i></a>
                                 </div>  
                                 <div class="mr-2 border border-info rounded p-2">
-                                    <a href=""><i class="la la-telegram la-3x text-info"></i></a>
-                                </div>  
-                                <div class="mr-2 border border-warning rounded p-2">
-                                    <a href=""><i class="la la-twitter la-3x text-warning"></i></a>
+                                    <a href="https://t.me/beandbyias"><i class="la la-telegram la-3x text-info"></i></a>
                                 </div>  
                             </div>
                         </div>

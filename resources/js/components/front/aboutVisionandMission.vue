@@ -24,22 +24,22 @@
                         <div class="row pb-5">
                             <div class="col-lg-6 responsive-column-half">
                                 <div class="img-box">
-                                    <img src="https://beandbyias.com/storage/app/public/images/category/2UFfiWHuvvnd9z03yM6ESjprUBzx1TJOm8ypvx9M.png"  alt="our mission image" class="img-fluid lazy rounded-rounded">
+                                    <img src="https://s3.ap-south-1.amazonaws.com/benby.images/images/2UFfiWHuvvnd9z03yM6ESjprUBzx1TJOm8ypvx9M.png"  alt="our mission image" class="img-fluid lazy rounded-rounded">
                                 </div>
                             </div><!-- end col-lg-6 -->
                             <div class="col-lg-6 responsive-column-half">
                                 <div class="img-box my-3">
-                                    <img src="https://beandbyias.com/storage/app/public/images/category/qYczO4iXn33xIVVWq1wPlzHX7oXNQEjW4twXksUu.png"  alt="our mission image" class="img-fluid lazy rounded-rounded">
+                                    <img src="https://s3.ap-south-1.amazonaws.com/benby.images/images/qYczO4iXn33xIVVWq1wPlzHX7oXNQEjW4twXksUu.png"  alt="our mission image" class="img-fluid lazy rounded-rounded">
                                 </div>
                             </div><!-- end col-lg-6 -->
                             <div class="col-lg-6 responsive-column-half">
                                 <div class="img-box">
-                                    <img src="https://beandbyias.com/storage/app/public/images/category/UWlmdmWPNXIDmltlMMF6oHmJRp4CsRsJTKC3EIlU.png"  alt="our mission image" class="img-fluid lazy rounded-rounded">
+                                    <img src="https://s3.ap-south-1.amazonaws.com/benby.images/images/UWlmdmWPNXIDmltlMMF6oHmJRp4CsRsJTKC3EIlU.png"  alt="our mission image" class="img-fluid lazy rounded-rounded">
                                 </div>
                             </div><!-- end col-lg-6 -->
                             <div class="col-lg-6 responsive-column-half">
                                 <div class="img-box my-3">
-                                    <img src="https://beandbyias.com/storage/app/public/images/category/i897yt0guIt7SmWd6obvQJa9k7hSaEplLF7430cN.png"  alt="our mission image" class="img-fluid lazy rounded-rounded">
+                                    <img src="https://s3.ap-south-1.amazonaws.com/benby.images/images/i897yt0guIt7SmWd6obvQJa9k7hSaEplLF7430cN.png"  alt="our mission image" class="img-fluid lazy rounded-rounded">
                                 </div>
                             </div><!-- end col-lg-6 -->
                         </div>
@@ -91,7 +91,7 @@
                     </div><!-- end col-lg-6 -->
                     <div class="col-lg-5">
                         <div class="my-auto generic-img-box generic-img-box-layout-3">
-                            <img src="https://beandbyias.com/storage/app/public/images/category/IkoFawzIyQLlcMtNLOjmjK9PKV2XJDPEsiadv1Si.png" data-src="https://beandbyias.com/storage/app/public/images/category/IkoFawzIyQLlcMtNLOjmjK9PKV2XJDPEsiadv1Si.png" alt="About image" class="img__item lazy img__item-1">
+                            <img src="https://s3.ap-south-1.amazonaws.com/benby.images/images/IkoFawzIyQLlcMtNLOjmjK9PKV2XJDPEsiadv1Si.png" data-src="https://beandbyias.com/storage/app/public/images/category/IkoFawzIyQLlcMtNLOjmjK9PKV2XJDPEsiadv1Si.png" alt="About image" class="img__item lazy img__item-1">
                         </div>
                     </div><!-- end col-lg-6 -->
                     <div class="col-lg-12">
