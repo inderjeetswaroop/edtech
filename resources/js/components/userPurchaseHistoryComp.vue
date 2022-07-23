@@ -35,14 +35,120 @@
                         <span v-else class="badge badge-danger">Failed</span>
                     </td>
                     <td>
-                        <button @click="accessStatus(pays.id)" :class="pays.paymentStatus == 1 ? 'btn-success' : 'btn-danger'" class="btn">
-                            {{ pays.paymentStatus == 1 ? 'Block Access' : 'Allow Access' }}
-                        </button>
+                        <div class="btn-group">
+                            <button class="btn btn-info btn-xs" data-toggle="modal" data-target="#editpurchase" @click="getpurchaseInfo(pays.id)">
+                                Edit
+                            </button>
+                            <button @click="accessStatus(pays.id)" :class="pays.paymentStatus == 1 ? 'btn-success' : 'btn-danger'" class="btn btn-xs">
+                                {{ pays.paymentStatus == 1 ? 'Block Access' : 'Allow Access' }}
+                            </button>
+                        </div>   
+                        
                     </td>
                 </tr>
             </tbody>
             </table>
         </div>
+
+        <!-- The Modal -->
+        <div class="modal" id="editpurchase">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Edit Purchase</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <!-- Form Content -->
+                        <form method="post" class="needs-validation pt-4"  novalidate="" @submit.prevent="updatePurchase">
+                            <div class="row">
+                                
+                                
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="fullName">Course Access Start Date:</label>
+                                        <input type="datetime-local" class="form-control" placeholder="Choose Start date" id="fullName" v-model="paymentsInfo.accessFrom" required>
+                                        <!-- Error msg -->
+                                        <div v-if="error">
+                                            
+                                            <ul>
+                                                <li v-for="err of error.startDate" :key="err" class="text-danger" >
+                                                    {{err}}
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    <!-- Error msg -->
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="fullName">Course Access End Date:</label>
+                                        <input type="datetime-local" class="form-control" placeholder="Enter First Name" id="fullName" v-model="paymentsInfo.accessTo" required>
+                                        <!-- Error msg -->
+                                        <div v-if="error">
+                                            
+                                            <ul>
+                                                <li v-for="err of error.endDate" :key="err" class="text-danger" >
+                                                    {{err}}
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    <!-- Error msg -->
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="fullName">Course Amount:</label>
+                                        <input type="text" class="form-control" placeholder="Enter Course Amount" id="fullName" v-model="paymentsInfo.amount" required>
+                                        <!-- Error msg -->
+                                        <div v-if="error">
+                                            
+                                            <ul>
+                                                <li v-for="err of error.cAmount" :key="err" class="text-danger" >
+                                                    {{err}}
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    <!-- Error msg -->
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="fullName">Payment Note(Optional):</label>
+                                        <input type="text" class="form-control" placeholder="Enter First Name" id="fullName" v-model="paymentsInfo.description">
+                                        <!-- Error msg -->
+                                        <div v-if="error">
+                                            
+                                            <ul>
+                                                <li v-for="err of error.paymentNote" :key="err" class="text-danger" >
+                                                    {{err}}
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    <!-- Error msg -->
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Update</button>
+                            <h3 :class="msgclass">{{msg}}</h3>
+                    </form>
+                    <!-- form Content -->
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- The modal -->
     </div>
 </template>
 <script>
@@ -54,6 +160,11 @@ export default {
         return {
             userId:this.usrid,
             payments: {},
+            paymentsInfo:{},
+            pId:"",
+            error:"",
+            msgclass:"",
+            msg:"",
         }
     },
      created(){
@@ -79,6 +190,38 @@ export default {
                     }
                 })
                 .catch((error) => console.log(error));      
+            },
+            getpurchaseInfo(paysId){
+                this.pId = paysId;
+                axios.get("/account/customer/single-payment-info/"+paysId)
+                .then((response) => {
+                    this.paymentsInfo = response.data;
+                })
+                .catch((error) => console.log(error));
+            },
+            updatePurchase() {
+                this.msgclass = "text-success";
+                this.msg = "Please wait...";
+                const formdata = new FormData();
+                formdata.append("cAmount",this.paymentsInfo.amount);
+                formdata.append("startDate",this.paymentsInfo.accessFrom);
+                formdata.append("endDate",this.paymentsInfo.accessTo);
+                formdata.append("paymentNote",this.paymentsInfo.description);
+                formdata.append("payId",this.pId);
+                axios.post("/account/customer/update-single-payment-info",formdata)
+                    .then((data) =>{
+                        this.msgclass = "text-success";
+                        this.msg = "Payment Info is updated";
+                        this.payments = data.data;
+                      
+                    })
+                    .catch(error => {
+                        this.error = error.response.data.errors;
+                        // console.log(error)
+                        this.msgclass = "text-danger";
+                        this.msg = "Please Fix error";
+                        
+                    })  
             }
     }
 

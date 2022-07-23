@@ -13,15 +13,14 @@
 	<router-link to="/example">Example</router-link>
    <router-link to="/contact">Contact</router-link>
    <router-view></router-view> -->
-   <form action="{{route('addnewchapter')}}" method="post" >
+   <form action="{{route('updatePay')}}" method="post" >
    			@csrf
 			<br><br>
-			<input type="text" name="chaptername" class="form-control" placeholder="Chapter or module Name">
-			<input type="text" name="chapterduration" class="form-control" placeholder="Chapter or module Duration">
-			<input type="text" name="topicnotes" class="form-control" placeholder="topicnotes">
-			<input type="text" name="attempts" class="form-control" placeholder="attempts">
-			<input type="datetime-local" name="scheludTime" class="form-control" placeholder="scheludTime">
-			<input type="text" name="corseId" class="form-control" value="4">
+			<input type="text" name="cAmount" class="form-control" placeholder="amount">
+			<input type="datetime-local" name="startDate" class="form-control" placeholder="start date">
+			<input type="datetime-local" name="endDate" class="form-control" placeholder="end date">
+			<input type="text" name="paymentNote" class="form-control" placeholder="pay note">
+			<input type="text" name="payId" class="form-control" value="125">
 			
 			   
 		<button type="Submit">Submit</button>

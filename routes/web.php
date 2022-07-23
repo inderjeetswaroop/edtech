@@ -202,7 +202,8 @@ Route::prefix("account")->group(function(){
 			Route::get("all-users","UserController@allusers");
 			Route::post("user-edit-data","UserController@editUser");
 			Route::post("updated-user-password-data","UserController@updatePass");
-			
+			Route::get("single-payment-info/{paymentid}","CheckoutController@singlepayinfo");
+			Route::post("update-single-payment-info","CheckoutController@updatepaymentInfo")->name("updatePay");
 			Route::get("user-dashboard","UserController@customerDashboard")->name("cDash");
 			// wishList
 			Route::get("my-wishlist","UserController@wishList")->name("wishlist");

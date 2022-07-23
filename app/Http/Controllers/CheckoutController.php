@@ -262,5 +262,31 @@ class CheckoutController extends Controller
 
     }
 
+    public function singlepayinfo($paymentId)
+    {
+        $pInfo = Payment::find($paymentId); 
+        return $pInfo->toJson();
+    }
+
+    public function updatepaymentInfo(Request $request)
+    {
+        $this->validate($request,[
+            "cAmount"=>"required|numeric",
+            "startDate"=>"required",
+            "endDate"=>"required",
+            "payId"=>"required",
+        ]);
+
+        $pays = Payment::find($request->payId);
+        $pays->amount = $request->cAmount;
+        $pays->accessFrom = $request->startDate;
+        $pays->accessTo = $request->endDate;
+        $pays->description = $request->paymentNote;
+        $pays->save();
+
+        $getPays = Payment::where("userId",$pays->userId)->orderBy("id","desc")->get();
+        return $getPays->toJson();
+
+    }
 
 }
