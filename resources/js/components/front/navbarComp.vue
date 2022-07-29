@@ -235,7 +235,7 @@ export default {
 
             // Pop up
 
-            axios.get("/seller/single-popup-info/")
+            axios.get("/seller/single-popup-info")
             .then((response) => {
                 this.popupInfo = response.data
                 // console.log(response.data)
