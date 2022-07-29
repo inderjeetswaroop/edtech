@@ -259,18 +259,18 @@ export default {
         }
     },
     created(){
-            axios.get("/course-dashboard/blogs-setting/blog-category-list/")
+            axios.get("/course-dashboard/blogs-setting/blog-category-list")
             .then((response) => this.catList = response.data)
             .catch((error) => console.log(error));
              
              //All tags
-                axios.get("/course-dashboard/blogs-setting/tags-list/")
+                axios.get("/course-dashboard/blogs-setting/tags-list")
                 .then((response) => this.options = response.data)
                 .catch((error) => console.log(error));
             //All tags
 
             //All Subjects
-                axios.get("/course-dashboard/blogs-setting/subject-list/")
+                axios.get("/course-dashboard/blogs-setting/subject-list")
                 .then((response) => this.optionsSub = response.data)
                 .catch((error) => console.log(error));
             //All Subjects
