@@ -103,11 +103,11 @@ export default {
             this.dis = "block";
             this.load = '<div class="spinner-border text-success"></div>';
             
-            axios.get("/account/customer/all-users/")
+            axios.get("/account/customer/all-users")
             .then((response) => this.userList = response.data)
             .catch((error) => console.log(error));
 
-            axios.get("/course-dashboard/courses-list/")
+            axios.get("/course-dashboard/courses-list")
             .then((response) => this.allcourses = response.data)
             .catch((error) => console.log(error));
 
@@ -120,7 +120,7 @@ export default {
         updateuserList(usrdata){
             this.load = '<div class="spinner-border text-success"></div>';
             
-            axios.get("/account/customer/all-users/")
+            axios.get("/account/customer/all-users")
             .then((response) => this.userList = response.data)
             .catch((error) => console.log(error));
 

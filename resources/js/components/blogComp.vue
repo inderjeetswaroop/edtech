@@ -44,7 +44,7 @@ export default {
         }
     },
     created(){
-                axios.get("/course-dashboard/blogs-setting/blog-category-list/")
+                axios.get("/course-dashboard/blogs-setting/blog-category-list")
             .then((response) => this.list = response.data)
             .catch((error) => console.log(error));
     },
